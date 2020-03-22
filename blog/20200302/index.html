@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png"><link rel="icon" type="image/png" href="/img/favicon.png"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content=""><meta name="author" content="Regnover"><meta name="keywords" content=""><title>前端面试 01-页面布局 ~ Regnover</title><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.10.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.8.7/css/mdb.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css"><link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.css"><script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><style type="text/css">.banner-bg{background-image:url(https://s2.ax1x.com/2020/02/12/1H1EfP.png);background-position:center;background-repeat:repeat-y;background-size:cover;background-attachment:fixed}</style><meta name="generator" content="Hexo 4.2.0"></head><body class="banner-bg"><header style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/">&nbsp;<strong>Regnover</strong>&nbsp;</a> <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/">归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/">分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/">标签</a></li><li class="nav-item"><a class="nav-link" href="/about/">关于</a></li><li class="nav-item" id="search-btn"><a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a></li></ul></div></div></nav><div class="view intro-2 rgba-black-slight" id="background"><div class="full-bg-img"><div class="mask flex-center"><div class="container text-center white-text fadeInUp"><span class="h2" id="subtitle"></span><br><p class="mt-3"><i class="far fa-calendar-alt"></i> <span class="post-date">2020-03-02&nbsp;|&nbsp;</span> <i class="far fa-chart-bar"></i> <span class="post-count">2.1k</span>字&nbsp;|&nbsp; <i class="far fa-clock"></i> <span class="post-count">9</span>分钟 <span id="busuanzi_container_page_pv" style="display:none">&nbsp;|&nbsp; <i class="far fa-eye"></i> <span id="busuanzi_value_page_pv"></span>次</span></p></div></div></div></div></header><main id="mainContent" class="rgba-black-slight"><div class="container-fluid"><div class="row"><div class="d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-md"><div class="py-5 z-depth-3" id="board"><div class="post-content mx-auto" id="post"><div class="markdown-body"><h2 id="前端面试（前言）"><a href="#前端面试（前言）" class="headerlink" title="前端面试（前言）"></a>前端面试（前言）</h2><h3 id="面试基础"><a href="#面试基础" class="headerlink" title="面试基础"></a>面试基础</h3><ul><li><p>页面布局</p></li><li><p>CSS盒模型：是CSS的基石。</p></li><li><p>DOM事件</p></li><li><p>HTTP协议</p></li><li><p>面向对象</p></li><li><p>原型链：能说出原型链的始末</p></li></ul><h3 id="面试进阶"><a href="#面试进阶" class="headerlink" title="面试进阶"></a>面试进阶</h3><ul><li><p>通信：普通的通信、跨域通信</p></li><li><p>安全：CSRF、XSS。</p></li><li><p>算法</p></li></ul><h3 id="回答问题时要注意的"><a href="#回答问题时要注意的" class="headerlink" title="回答问题时要注意的"></a>回答问题时要注意的</h3><p>（1）题干的要求真的是字面要求的这么简单吗？</p><p>（2）答案怎么写，技巧在哪里</p><p>（3）如果想证明我的实力，应该有几种答案？</p><p>本文来讲一下页面布局。</p><h2 id="题目：页面布局"><a href="#题目：页面布局" class="headerlink" title="题目：页面布局"></a>题目：页面布局</h2><p>问题：假设容器的高度默认100px，请写出<strong>三栏布局</strong>，其中左栏、右栏的宽度各为300px，中间的宽度自适应。</p><p><img src="http://img.smyhvae.com/20180305_1520.png" srcset="/img/loading.gif" alt=""></p><p>分析：</p><p>初学者想到的答案有两种：</p><ul><li><p>方法1：浮动</p></li><li><p>方法2：绝对定位。</p></li></ul><p>但要求你能至少写出三四种方法，才算及格。剩下的方法如下：</p><ul><li><p>方法3：flexbox。移动开发里经常用到。</p></li><li><p>方法4：表格布局 table。虽然已经淘汰了，但也应该了解。</p></li><li><p>方法5：网格布局 grid。</p></li></ul><p>下面分别讲解。</p><h3 id="方法1-和方法2"><a href="#方法1-和方法2" class="headerlink" title="方法1 和方法2"></a>方法1 和方法2</h3><p><strong>方法1、浮动：</strong></p><p>左侧设置左浮动，右侧设置右浮动即可，中间会自动地自适应。</p><p><strong>方法2、绝对定位：</strong></p><p>左侧设置为绝对定位， left：0px。右侧设置为绝对定位， right：0px。中间设置为绝对定位，left 和right 都为300px，即可。中间的宽度会自适应。</p><p>使用<code>article</code>标签作为容器，包裹左、中、右三个部分。</p><p>方法1 和方法2 的代码如下：</p><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        html * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .layout {
+            margin-bottom: 150px;
+        }
+
+
+        .layout article div { /*注意，这里是设置每个小块儿的高度为100px，而不是设置大容器的高度。大容器的高度要符合响应式*/
+            height: 100px;
+        }
+
+        /* 方法一 start */
+
+        .layout.float .left {
+            float: left;
+            width: 300px;
+            background: red;
+        }
+
+        .layout.float .right {
+            float: right;
+            width: 300px;
+            background: blue;
+        }
+
+        .layout.float .center {
+            background: green;
+
+        }
+
+        /* 方法一 end */
+
+
+        /* 方法二 start */
+        .layout.absolute .left-center-right {
+            position: relative;
+        }
+
+        .layout.absolute .left {
+            position: absolute;
+            left: 0;
+            width: 300px;
+            background: red;
+        }
+
+        /* 【重要】中间的区域，左侧定位300px，右侧定位为300px，即可完成。宽度会自使用 */
+        .layout.absolute .center {
+            position: absolute;
+            left: 300px;
+            right: 300px;
+            background: green;
+        }
+
+        .layout.absolute .right {
+            position: absolute;
+            right: 0;
+            width: 300px;
+            background: blue;
+        }
+
+
+        /* 方法二 end */
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;!-- 方法一：浮动 start --&gt;
+    &lt;!-- 输入 section.layout.float，即可生成  --&gt;
+    &lt;section class=&quot;layout float&quot;&gt;
+        &lt;!-- 用  article 标签包裹左、中、右三个部分 --&gt;
+        &lt;article class=&quot;left-right-center&quot;&gt;
+            &lt;!-- 输入 div.left+div.right+div.center，即可生成 --&gt;
+            &lt;div class=&quot;left&quot;&gt;
+                我是 left
+            &lt;/div&gt;
+            &lt;div class=&quot;right&quot;&gt;
+                我是 right
+            &lt;/div&gt;
+            &lt;div class=&quot;center&quot;&gt;
+                浮动解决方案
+                我是 center
+            &lt;/div&gt;
+
+        &lt;/article&gt;
+
+    &lt;/section&gt;
+    &lt;!-- 方法一：浮动 end --&gt;
+
+    &lt;section class=&quot;layout absolute&quot;&gt;
+        &lt;article class=&quot;left-center-right&quot;&gt;
+            &lt;div class=&quot;left&quot;&gt;
+                我是 left
+            &lt;/div&gt;
+            &lt;div class=&quot;right&quot;&gt;
+                我是 right
+            &lt;/div&gt;
+            &lt;div class=&quot;center&quot;&gt;
+                &lt;h1&gt;绝对定位解决方案&lt;/h1&gt;
+                我是 center
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>注意上方代码中， className 定义和使用，非常规范。</p><p>效果如下：</p><p><img src="http://img.smyhvae.com/20180305_1640.gif" srcset="/img/loading.gif" alt=""></p><h3 id="方法3、flexbox布局"><a href="#方法3、flexbox布局" class="headerlink" title="方法3、flexbox布局"></a>方法3、flexbox布局</h3><p>将左中右所在的容器设置为<code>display: flex</code>，设置两侧的宽度后，然后让中间的<code>flex = 1</code>，即可。</p><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        html * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .layout article div {
+            height: 100px;
+        }
+
+        .left-center-right {
+            display: flex;
+        }
+
+        .layout.flex .left {
+            width: 300px;
+            background: red;
+        }
+
+        .layout.flex .center {
+            flex: 1;
+            background: green;
+        }
+
+        .layout.flex .right {
+            width: 300px;
+            background: blue;
+        }
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;section class=&quot;layout flex&quot;&gt;
+        &lt;article class=&quot;left-center-right&quot;&gt;
+            &lt;div class=&quot;left&quot;&gt;
+                我是 left
+            &lt;/div&gt;
+            &lt;div class=&quot;center&quot;&gt;
+                &lt;h1&gt;flex布局解决方案&lt;/h1&gt;
+                我是 center
+            &lt;/div&gt;
+            &lt;div class=&quot;right&quot;&gt;
+                我是 right
+            &lt;/div&gt;
+
+        &lt;/article&gt;
+    &lt;/section&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</code></pre><p>效果如下：</p><p><img src="http://img.smyhvae.com/20180305_1700.gif" srcset="/img/loading.gif" alt=""></p><h3 id="方法4、表格布局-table"><a href="#方法4、表格布局-table" class="headerlink" title="方法4、表格布局 table"></a>方法4、表格布局 table</h3><p>设置整个容器的宽度为100%，设置三个部分均为表格，然后左边的单元格为 300px，右边的单元格为 300px，即可。中间的单元格会自适应。</p><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        html * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .layout.table div {
+            height: 100px;
+        }
+
+        /* 重要：设置容器为表格布局，宽度为100% */
+        .layout.table .left-center-right {
+            width: 100%;
+            display: table;
+            height: 100px;
+
+        }
+
+        .layout.table .left-center-right div {
+            display: table-cell; /* 重要：设置三个模块为表格里的单元*/
+        }
+
+        .layout.table .left {
+            width: 300px;
+            background: red;
+        }
+
+        .layout.table .center {
+            background: green;
+        }
+
+        .layout.table .right {
+            width: 300px;
+            background: blue;
+        }
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;section class=&quot;layout table&quot;&gt;
+        &lt;article class=&quot;left-center-right&quot;&gt;
+            &lt;div class=&quot;left&quot;&gt;
+                我是 left
+            &lt;/div&gt;
+            &lt;div class=&quot;center&quot;&gt;
+                &lt;h1&gt;表格布局解决方案&lt;/h1&gt;
+                我是 center
+            &lt;/div&gt;
+            &lt;div class=&quot;right&quot;&gt;
+                我是 right
+            &lt;/div&gt;
+
+        &lt;/article&gt;
+    &lt;/section&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><p><img src="http://img.smyhvae.com/20180305_1855.gif" srcset="/img/loading.gif" alt=""></p><h3 id="方法5、网格布局-grid"><a href="#方法5、网格布局-grid" class="headerlink" title="方法5、网格布局 grid"></a>方法5、网格布局 grid</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        html * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 重要：设置容器为网格布局，宽度为100% */
+        .layout.grid .left-center-right {
+            display: grid;
+            width: 100%;
+            grid-template-rows: 100px;
+            grid-template-columns: 300px auto 300px;  /* 重要：设置网格为三列，并设置每列的宽度。即可。*/
+
+        }
+
+        .layout.grid .left {
+            background: red;
+        }
+
+        .layout.grid .center {
+            background: green;
+        }
+
+        .layout.grid .right {
+            background: blue;
+        }
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;section class=&quot;layout grid&quot;&gt;
+        &lt;article class=&quot;left-center-right&quot;&gt;
+            &lt;div class=&quot;left&quot;&gt;
+                我是 left
+            &lt;/div&gt;
+            &lt;div class=&quot;center&quot;&gt;
+                &lt;h1&gt;网格布局解决方案&lt;/h1&gt;
+                我是 center
+            &lt;/div&gt;
+            &lt;div class=&quot;right&quot;&gt;
+                我是 right
+            &lt;/div&gt;
+
+        &lt;/article&gt;
+    &lt;/section&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><p>效果：</p><p><img src="http://img.smyhvae.com/20180305_1920.gif" srcset="/img/loading.gif" alt=""></p><h3 id="延伸：五种方法的对比"><a href="#延伸：五种方法的对比" class="headerlink" title="延伸：五种方法的对比"></a>延伸：五种方法的对比</h3><ul><li><p>五种方法的优缺点</p></li><li><p>考虑中间模块的高度问题</p></li><li><p>兼容性问题：实际开发中，哪个最实用？</p></li></ul><p>方法1：浮动：</p><ul><li><p>优点：兼容性好。</p></li><li><p>缺点：浮动会脱离标准文档流，因此要清除浮动。我们解决好这个问题即可。</p></li></ul><p>方法:2：绝对定位</p><ul><li><p>优点：快捷。</p></li><li><p>缺点：导致子元素也脱离了标准文档流，可实用性差。</p></li></ul><p>方法3：flex 布局（CSS3中出现的）</p><ul><li>优点：解决上面两个方法的不足，flex布局比较完美。移动端基本用 flex布局。</li></ul><p>方法4：表格布局</p><ul><li><p>优点：表格布局在很多场景中很实用，兼容性非常好。因为IE8不支持 flex，此时可以尝试表格布局</p></li><li><p>缺点：因为三个部分都当成了<strong>单元格</strong>来对待，此时，如果中间的部分变高了，其会部分也会被迫调整高度。但是，在很多场景下，我们并不需要两侧的高度增高。</p></li></ul><p>什么时候用 flex 布局 or 表格布局，看具体的场景。二者没有绝对的优势，也没有绝对的不足。</p><p>方法5：网格布局</p><ul><li>CSS3中引入的布局，很好用。代码量简化了很多。</li></ul><p>PS：面试提到网格布局，说明我们对新技术是有追求的。</p><h3 id="延伸：如果题目中去掉高度已知"><a href="#延伸：如果题目中去掉高度已知" class="headerlink" title="延伸：如果题目中去掉高度已知"></a>延伸：如果题目中去掉高度已知</h3><p>问题：题目中，如果去掉高度已知，我们往中间的模块里塞很多内容，让中间的模块撑开。会发生什么变化？哪个布局就不能用了？</p><p>分析：其实可以这样理解，我们回去看上面的动画效果，当中间的模块变得很挤时，会发生什么效果？就是我们想要的答案。</p><p>答案是：<strong>flex 布局和表格布局可以通用</strong>，其他三个布局都不能用了。</p><h3 id="页面布局的变通"><a href="#页面布局的变通" class="headerlink" title="页面布局的变通"></a>页面布局的变通</h3><p><img src="http://img.smyhvae.com/20180305_1931.png" srcset="/img/loading.gif" alt=""></p><p><code>上下高度固定，中间自适应</code>，这个在移动端的页面中很常见。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>涉及到的知识点：</p><p>（1）语义化掌握到位：每个区域用<code>section</code>、<code>article</code>代表容器、<code>div</code>代表块儿。如果通篇都用 div，那就是语义化没掌握好。</p><p>（2）页面布局理解深刻。</p><p>（3）CSS基础知识扎实。</p><p>（4）思维灵活且积极上进。题目中可以通过<code>网格布局</code>来体现。</p><p>（5）代码书写规范。注意命名。上面的代码中，没有一行代码是多的。</p><blockquote><p>本文转载自<a href="https://github.com/smyhvae/Web" target="_blank" rel="noopener">GitHub</a></p></blockquote><hr></div><br><div><div id="post-tag"><span><i class="iconfont icon-inbox"></i> <a class="hover-with-bg" href="/categories/%E6%96%87%E6%A1%A3">文档</a> &nbsp; </span><span><i class="iconfont icon-tag"></i> <a class="hover-with-bg" href="/tags/web">web</a> <a class="hover-with-bg" href="/tags/interview">interview</a></span></div><div id="post-note"><div><strong>本文作者：</strong><a href="/">Regnover</a></div><div><strong>本文链接：</strong><a href="http://regnover.xyz/blog/20200302/">http://regnover.xyz/blog/20200302/</a></div><div><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</div></div><div id="post-nav" class="container"><div class="row"><a href="/blog/20200303/" id="post-nav-prev" class="col"><i class="fas fa-arrow-left"></i> <span class="post-nav-title">前端面试 02-CSS盒模型及BFC</span> </a><a href="/blog/20200301/" id="post-nav-next" class="col"><span class="post-nav-title">前端面试 00-准备</span> <i class="fas fa-arrow-right"></i></a></div></div></div></div><div class="col-lg-10 mx-auto nopadding-md"><div class="container comments mx-auto" id="comments"></div></div></div></div><div class="d-none d-lg-block col-lg-2 toc-container"><div id="toc"><p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p><div id="tocbot"></div></div></div></div></div></main><div id="sidebar" class="sidebar-hide"><span class="sidebar-button sidebar-button-shift" id="toggle-sidebar"><i class="fa fa-arrow-right on" aria-hidden="true"></i></span><div class="sidebar-overlay"></div><div class="sidebar-intrude"><div class="sidebar-avatar"><img src="/img/avatar.jpg" srcset="/img/avatar.jpg" alt="avatar"></div><div class="text-center sidebar-about"><p class="h3 sidebar-author">Regnover</p><p class="sidebar-subtitle"></p><a href="https://github.com/Regnover" class="h4" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> </a>&nbsp;&nbsp; <a href="https://twitter.com" class="h4" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> </a>&nbsp;&nbsp; <a href="mailto:example@example.com" class="h4" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i> </a>&nbsp;&nbsp;</div><div class="sidebar-friend"><p class="h6 sidebar-friend-title"><span class="sidebar-label-left"><i class="fas fa-user-friends"></i></span> <span class="sidebar-label">友情链接</span></p><ul class="list-group"><a href="https://example.com/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; friendname</li></a></ul></div></div></div><a class="z-depth-1" id="scroll-top-button" href="#" role="button"><i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div><div id="footerContent" class="rgba-black-slight"><footer class="pt-5"><div class="text-center py-3"><div class="footer-theme"><a href="https://hexo.io" target="_blank" rel="nofollow noopener noreferrer">Hexo</a> theme <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener noreferrer">Fluid</a> mod by <a href="https://github.com/qixa/hexo-theme-fluid-mod" target="_blank" rel="nofollow noopener noreferrer">Julydate</a></div><div class="footer-copyright">©2020&nbsp;Regnover</div><div class="footer-siteview"><span id="busuanzi_container_site_pv" style="display:none">被瞅了<span id="busuanzi_value_site_pv"></span>次 </span><span id="busuanzi_container_site_uv" style="display:none">| 被<span id="busuanzi_value_site_uv"></span>人看爆</span></div><div class="footer-hitokoto"><a id="hitokotoa" href="#" target="_blank" rel="nofollow noopener noreferrer"><span id="hitokoto"></span></a></div></div></footer></div><script src="/lib/popper/popper.min.js"></script><script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script><script src="https://cdn.staticfile.org/mdbootstrap/4.8.7/js/mdb.min.js"></script><script src="/js/main.js"></script><script src="/js/lazyload.js"></script><script src="https://cdn.staticfile.org/tocbot/4.8.1/tocbot.min.js"></script><script src="/js/post.js"></script><script src="https://cdn.staticfile.org/typed.js/2.0.9/typed.min.js"></script><script type="text/javascript">var typed=new Typed("#subtitle",{strings:["  ","前端面试 01-页面布局&nbsp;"],cursorChar:"_",typeSpeed:70,loop:!1});typed.stop(),$(document).ready(function(){$(".typed-cursor").addClass("h2"),typed.start()})</script><script src="https://cdn.staticfile.org/anchor-js/4.2.0/anchor.min.js"></script><script type="text/javascript">anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))</script><script src="/js/local-search.js"></script><script type="text/javascript">var path="/local-search.xml",inputArea=document.querySelector("#local-search-input");inputArea.onclick=function(){getSearchFile(path),this.onclick=null}</script><script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script type="text/javascript">var setupFancybox=function(){$("#post img:not(.no-zoom img, img[no-zoom])").each(function(){var t=document.createElement("a");$(t).attr("data-fancybox","gallery"),$(t).attr("href",$(this).attr("src")),$(this).wrap(t)})};setupFancybox()</script><script type="text/javascript">$("img.image_random").each(function(){var n=$(this);$.get("//img.xjh.me/random_img.php?return=json",function(i,m){"success"===m&&200===i.result&&(n[0].src=i.img)})})</script><script type="text/javascript">function hitokoto(t){$("#hitokoto").stop().fadeOut(function(){$("#hitokoto").html(t.hitokoto),document.getElementById("hitokotoa").href="https://hitokoto.cn?id="+t.id,$("#hitokoto").stop().fadeIn()})}function getHitokoto(){var t=["a","b","c","d"],o=document.createElement("script");o.type="text/javascript",o.id="hitokotoko_js",o.src="//v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat="+t[Math.floor(Math.random()*t.length)],$("#hitokoto").append(o)}$(document).ready(function(){getHitokoto()}),setInterval(getHitokoto,1e4)</script><script async src="//cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js"></script><script type="text/javascript">$("#background").removeClass("banner-bg"),$("body").addClass("banner-bg");var postToTopHight=$("#board").offset().top;$(window).scroll(function(){var o=document.body.scrollTop+document.documentElement.scrollTop;postToTopHight<=o?($("#background").removeClass("rgba-black-slight"),$("#mainContent").removeClass("rgba-black-slight"),$("#footerContent").removeClass("rgba-black-slight")):($("#background").addClass("rgba-black-slight"),$("#mainContent").addClass("rgba-black-slight"),$("#footerContent").addClass("rgba-black-slight"))})</script><script type="text/javascript">var originalTitle=document.title;window.onblur=function(){document.title="网页崩溃了~~"},window.onfocus=function(){document.title=originalTitle}</script><script type="text/javascript">console.log("雪花效果 code by kvv.me"),function(){function n(){r.width=window.innerWidth,r.height=window.innerHeight,c=Math.round(window.innerWidth*window.innerHeight/1e4)}var r=document.createElement("canvas"),d=requestAnimationFrame||msRequestAnimationFrame||function(n){setTimeout(n,16)},h=0,c=0,m=[];n(),r.className="snow",document.body.appendChild(r);for(var i=0;i<c;i++)m.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,radius:4*Math.random()+1,direction:2*Math.random()-.5});addEventListener("resize",n),d(function n(){var i=window.innerWidth,e=window.innerHeight,t=r.getContext("2d");t.clearRect(0,0,i,e),t.fillStyle="rgba(255, 255, 255, 0.7)",t.beginPath(),h+=.01;for(var a=0;a<c;a++){var o=m[a];o&&(t.moveTo(o.x,o.y),t.arc(o.x,o.y,o.radius,0,2*Math.PI,!0),o.y+=Math.cos(h)+o.radius/2,o.x+=Math.sin(h*o.direction),(o.x>i+5||o.x<-5||o.y>e)&&(0<a%3?(m[a].x=Math.random()*i,m[a].y=-10):(0<Math.sin(h*o.direction)?m[a].x=-5:m[a].x=i+5,m[a].y=Math.random()*e)))}t.fill(),d(n)})}()</script></body></html>
